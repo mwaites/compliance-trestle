@@ -14,7 +14,7 @@
 """Tests for fs module."""
 
 import pathlib
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 from typing import List, Union
 
 import pytest
@@ -825,7 +825,7 @@ def test_dict_to_parameter_value_not_in_choices() -> None:
 
 
 def test_objects_differ_enum_and_root_comparisons() -> None:
-    """Test _objects_differ with enum and __root__ wrapper comparisons."""
+    """Test _objects_differ with enum and root wrapper comparisons."""
     from enum import Enum
 
     class TestEnum(Enum):
@@ -834,7 +834,8 @@ def test_objects_differ_enum_and_root_comparisons() -> None:
 
     class MockRootWrapper:
         def __init__(self, value):
-            self.__root__ = value
+            # Pydantic v2: RootModel uses 'root' instead of '__root__'
+            self.root = value
 
     enum_val = TestEnum.VALUE1
     assert not ModelUtils._objects_differ(enum_val, 'value1', [], [], False)
@@ -849,7 +850,7 @@ def test_objects_differ_enum_and_root_comparisons() -> None:
     root_wrapper_diff = MockRootWrapper('value2')
     assert ModelUtils._objects_differ(enum_val, root_wrapper_diff, [], [], False)
 
-    from pydantic.v1 import BaseModel as PydanticBaseModel
+    from pydantic import BaseModel as PydanticBaseModel
 
     class TestModel(PydanticBaseModel):
         value: str
@@ -886,7 +887,7 @@ def test_last_modified_at_time() -> None:
     """Test last_modified_at_time with and without timestamp."""
     from datetime import timezone
 
-    test_timestamp = datetime(2024, 1, 15, 10, 30, 0, tzinfo=timezone.utc)
+    test_timestamp = datetime(2024, 1, 15, 10, 30, 0, tzinfo=UTC)
     result = ModelUtils.last_modified_at_time(test_timestamp)
     assert result == test_timestamp
 

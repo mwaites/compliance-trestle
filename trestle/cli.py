@@ -27,6 +27,7 @@ from trestle.core.commands.command_docs import CommandBase
 from trestle.core.commands.command_docs import CommandPlusDocs
 from trestle.core.commands.create import CreateCmd
 from trestle.core.commands.describe import DescribeCmd
+from trestle.core.commands.generate_manifest import GenerateManifestCmd
 from trestle.core.commands.href import HrefCmd
 from trestle.core.commands.import_ import ImportCmd
 from trestle.core.commands.init import InitCmd
@@ -35,10 +36,12 @@ from trestle.core.commands.partial_object_validate import PartialObjectValidate
 from trestle.core.commands.remove import RemoveCmd
 from trestle.core.commands.replicate import ReplicateCmd
 from trestle.core.commands.sign import SignCmd
+from trestle.core.commands.sign_manifest import SignManifestCmd
 from trestle.core.commands.split import SplitCmd
 from trestle.core.commands.task import TaskCmd
 from trestle.core.commands.validate import ValidateCmd
 from trestle.core.commands.verify import VerifyCmd
+from trestle.core.commands.verify_manifest import VerifyManifestCmd
 from trestle.core.commands.version import VersionCmd
 from trestle.core.plugins import discovered_plugins
 
@@ -55,6 +58,7 @@ class Trestle(CommandBase):
         CanonicalizeCmd,
         CreateCmd,
         DescribeCmd,
+        GenerateManifestCmd,
         HrefCmd,
         ImportCmd,
         InitCmd,
@@ -63,10 +67,12 @@ class Trestle(CommandBase):
         RemoveCmd,
         ReplicateCmd,
         SignCmd,
+        SignManifestCmd,
         SplitCmd,
         TaskCmd,
         ValidateCmd,
         VerifyCmd,
+        VerifyManifestCmd,
         VersionCmd,
     ]
 

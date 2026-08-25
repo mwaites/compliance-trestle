@@ -91,15 +91,21 @@ A collection of demos utilizing trestle can be found in the related project [com
 
 ## Development status
 
-### v4: stable (actively developed)
+### v5: stable (actively developed)
+
+- supports NIST OSCAL 1.2.1 as well as previous versions
+- uses pydantic in v2 mode
+
+### v4: stable (maintenance mode)
 
 - supports NIST OSCAL 1.2.1 as well as previous versions
 - supports newly released Mapping Model
+- limited support until December 31, 2026
 
-### v3: stable (maintenance mode)
+### v3: stable (deprecated)
 
 - supports NIST OSCAL 1.1.3 as well as previous versions
-- limited support until June 30, 2026
+- no longer supported
 
 ### v2: stable (deprecated)
 
@@ -152,6 +158,8 @@ We are a Cloud Native Computing Foundation sandbox project.
   <img src="https://www.cncf.io/wp-content/uploads/2022/07/cncf-color-bg.svg" width=300 />
 </picture>
 
-The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage)".
+The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/legal/trademark-usage).
 
-*Trestle was originally created by IBM.*
+*OSCAL Compass is an independent open source project. It is not affiliated with, endorsed by, or sponsored by the National Institute of Standards and Technology (NIST) or any other government agency.*
+
+*OSCAL Compass was originally contributed by IBM.*
