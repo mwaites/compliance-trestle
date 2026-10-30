@@ -232,7 +232,7 @@ jobs:
         path: coverage.xml
 
   sonar:
-    if: ${{ (github.event.pull_request.base.repo.url == github.event.pull_request.head.repo.url && github.triggering_actor != 'dependabot[bot]' ) }}
+    if: ${{ (github.repository == 'oscal-compass/compliance-trestle' && github.event.pull_request.base.repo.url == github.event.pull_request.head.repo.url && github.triggering_actor != 'dependabot[bot]' ) }}
     runs-on: ubuntu-latest
     needs: [ test, set-versions]
     env:
@@ -291,7 +291,7 @@ jobs:
       timeout-minutes: 5
 
   snyk:
-    if: ${{ (github.event.pull_request.base.repo.url == github.event.pull_request.head.repo.url && github.triggering_actor != 'dependabot[bot]' ) }}
+    if: ${{ (github.repository == 'oscal-compass/compliance-trestle' && github.event.pull_request.base.repo.url == github.event.pull_request.head.repo.url && github.triggering_actor != 'dependabot[bot]' ) }}
     runs-on: ubuntu-latest
     needs: [ set-versions ]
     steps:
